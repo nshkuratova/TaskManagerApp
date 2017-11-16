@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String[] task = {"Задача 1", "Задача 2", "Задача 3", "Задача 4", "Задача 5", "Задача 6", "Задача 1", "Задача 2", "Задача 3", "Задача 4", "Задача 5", "Задача 6","Задача 1", "Задача 2", "Задача 3", "Задача 4", "Задача 5", "Задача 6","Задача 1", "Задача 2", "Задача 3", "Задача 4", "Задача 5", "Задача 6"};
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -29,11 +32,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_list_view, null, false);
-        ViewGroup.LayoutParams lp = view.getLayoutParams();
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linLayout);
-        linearLayout.addView(view);
+
+        for (int i = 0; i <task.length; i++){
+            View view = inflater.inflate(R.layout.item_list_view, linearLayout, false);
+            TextView taskName = (TextView) view.findViewById(R.id.name);
+            taskName.setText(task[i]);
+            linearLayout.addView(view);
+        }
+
     }
 
     @Override

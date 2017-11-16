@@ -51,17 +51,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="29dp" />
 
-    <LinearLayout
-        android:id="@+id/linLayout"
+    <ScrollView
+        android:id = "@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_toStartOf="@+id/fab"
-        android:layout_marginEnd="68dp"
-        android:layout_below="@+id/appBarLayout">
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/fab"
+            android:layout_weight="1"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
