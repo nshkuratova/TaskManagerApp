@@ -5,9 +5,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.item_list_view, null, false);
+        ViewGroup.LayoutParams lp = view.getLayoutParams();
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linLayout);
+        linearLayout.addView(view);
     }
 
     @Override
