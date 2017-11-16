@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,16 +33,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LayoutInflater inflater = getLayoutInflater();
+        ListView lvMain = (ListView) findViewById(R.id.lvMain);
 
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linLayout);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, task);
 
-        for (int i = 0; i <task.length; i++){
-            View view = inflater.inflate(R.layout.item_list_view, linearLayout, false);
-            TextView taskName = (TextView) view.findViewById(R.id.name);
-            taskName.setText(task[i]);
-            linearLayout.addView(view);
-        }
+        lvMain.setAdapter(adapter);
 
     }
 
